@@ -17,7 +17,7 @@ const app = express();
 const port = process.env.PORT
 
 app.use(cors({
-    origin: 'http://localhost:5173', // Your Vite frontend URL
+    origin: process.env.FRONTEND_URL, // Your Vite frontend URL
     credentials: true // Crucial for accepting the httpOnly cookies
 }));
 app.use(express.json())
