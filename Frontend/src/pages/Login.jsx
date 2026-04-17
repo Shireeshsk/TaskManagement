@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getApiUrl } from "../utils/api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function Login() {
     const email = e.target.email.value;
     const password = e.target.password.value;
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch(getApiUrl("/api/auth/login"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

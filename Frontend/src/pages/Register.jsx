@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getApiUrl } from "../utils/api";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function Register() {
     const password = e.target.password.value;
 
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch(getApiUrl("/api/auth/register"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
